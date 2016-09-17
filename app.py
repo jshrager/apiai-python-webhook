@@ -40,8 +40,8 @@ def processRequest(req):
 
 
 def makeWebhookResult(data):
-    
-    if data.response_type == "inspiration":
+    print(data)
+    if data.get("response_type") == "inspiration":
 
         speech = "Found some stuff for you!"
 
