@@ -31,8 +31,8 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") == "inspiration":
         res = makeWebhookResult({ "response_type": "inspiration", "style": req.get("result").get("parameters").get("style") })
-    elif req.get("result").get("action") == "find":
-        return {}
+    elif req.get("result").get("action") == "finding_products":
+        res = makeWebhookResult({ "response_type": "finding_products" })
     else:
         return {}
     
@@ -43,10 +43,7 @@ def makeWebhookResult(data):
     print(data)
     if data.get("response_type") == "inspiration":
 
-        if data.get("style") == "modern":
-            speech = "Found some modern stuff for you!"
-        else:
-            speed = "Found some other stuff for you!"
+        speed = "Found some other stuff for you!"
 
         print(data)
         print("Response:")
@@ -82,6 +79,18 @@ def makeWebhookResult(data):
             "data": {"facebook": facebook_message},
             # "contextOut": [],
             "source": "apiai-weather-webhook-sample"
+        }
+    elif data.get("response_type") == "finding_products":
+
+        facebook_message = {
+            "text":"I've found some products you might be interested in.",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Show Me",
+                "payload":"Show Me"
+              }
+            ]
         }
 
     else:
