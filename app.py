@@ -43,7 +43,10 @@ def makeWebhookResult(data):
     print(data)
     if data.get("response_type") == "inspiration":
 
-        speech = "Found some stuff for you!"
+        if data.get("style") == "modern":
+            speech = "Found some modern stuff for you!"
+        else:
+            speed = "Found some other stuff for you!"
 
         print(data)
         print("Response:")
