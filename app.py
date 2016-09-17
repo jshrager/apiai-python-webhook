@@ -29,121 +29,67 @@ def webhook():
 
 
 def processRequest(req):
-    if req.get("result").get("action") != "yahooWeatherForecast":
+    if req.get("result").get("action") == "inspiration":
+        res = makeWebhookResult("inspiration")
+    elif: req.get("result").get("action") == "find":
         return {}
-    baseurl = "https://query.yahooapis.com/v1/public/yql?"
-    yql_query = makeYqlQuery(req)
-    if yql_query is None:
+    else:
         return {}
-    yql_url = baseurl + urllib.urlencode({'q': yql_query}) + "&format=json"
-    print(yql_url)
-
-    result = urllib.urlopen(yql_url).read()
-    print("yql result: ")
-    print(result)
-
-    data = json.loads(result)
-    res = makeWebhookResult(data)
+    
     return res
 
 
-def makeYqlQuery(req):
-    result = req.get("result")
-    parameters = result.get("parameters")
-    city = parameters.get("geo-city")
-    if city is None:
-        return None
-
-    return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
-
-
 def makeWebhookResult(data):
-    query = data.get('query')
-    if query is None:
-        return {}
+    
+    if data == "inspiration":
 
-    result = query.get('results')
-    if result is None:
-        return {}
+        speech = "Found some stuff for you!"
 
-    channel = result.get('channel')
-    if channel is None:
-        return {}
+        print("Response:")
+        print(speech)
 
-    item = channel.get('item')
-    location = channel.get('location')
-    units = channel.get('units')
-    if (location is None) or (item is None) or (units is None):
-        return {}
-
-    condition = item.get('condition')
-    if condition is None:
-        return {}
-
-    # print(json.dumps(item, indent=4))
-
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-
-    print("Response:")
-    print(speech)
-
-    facebook_message = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [
-                    {
-                        "title": channel.get('title'),
-                        "image_url": "http://l.yimg.com/a/i/us/we/52/" + condition.get('code') + ".gif",
-                        "subtitle": speech,
-                        "buttons": [
-                            {
-                                "type": "web_url",
-                                "url": channel.get('link'),
-                                "title": "View Details"
-                            }
-                        ]
-                    },
-                    {
-                        "title": channel.get('title'),
-                        "image_url": "http://l.yimg.com/a/i/us/we/52/" + condition.get('code') + ".gif",
-                        "subtitle": speech,
-                        "buttons": [
-                            {
-                                "type": "web_url",
-                                "url": channel.get('link'),
-                                "title": "View Details"
-                            }
-                        ]
-                    },
-                    {
-                        "title": channel.get('title'),
-                        "image_url": "http://l.yimg.com/a/i/us/we/52/" + condition.get('code') + ".gif",
-                        "subtitle": speech,
-                        "buttons": [
-                            {
-                                "type": "web_url",
-                                "url": channel.get('link'),
-                                "title": "View Details"
-                            }
-                        ]
-                    }
-                ]
+        facebook_message = {
+            "attachment": {
+                "type": "template",
+                "payload": {
+                    "template_type": "generic",
+                    "elements": [
+                        {
+                            "title": "Idea 1",
+                            "image_url": "https://www.tutorialspoint.com/python/images/logo.png",
+                            "subtitle": speech,
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "http://www.google.com",
+                                    "title": "View Details"
+                                }
+                            ]
+                        }
+                    ]
+                }
             }
         }
-    }
 
 
-    return {
-        "speech": speech,
-        "displayText": speech,
-        "data": {"facebook": facebook_message},
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": {"facebook": facebook_message},
+            # "contextOut": [],
+            "source": "apiai-weather-webhook-sample"
+        }
 
+    else:
+        speech = "Something went wrong!"
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": "",
+            # "contextOut": [],
+            "source": "apiai-weather-webhook-sample"
+        }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
