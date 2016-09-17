@@ -43,7 +43,7 @@ def makeWebhookResult(data):
     print(data)
     if data.get("response_type") == "inspiration":
 
-        speed = "Found some other stuff for you!"
+        speech = "Found some other stuff for you!"
 
         print(data)
         print("Response:")
@@ -81,6 +81,8 @@ def makeWebhookResult(data):
         }
 
     elif data.get("response_type") == "finding_products":
+
+        speech = "Found some other stuff for you!"
 
         facebook_message = {
             "text":"I've found some products you might be interested in.",
