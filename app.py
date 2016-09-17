@@ -74,13 +74,7 @@ def makeWebhookResult(data):
                         }
                     ]
                 }
-            },
-            "quick_replies":[
-              {
-                "content_type":"text",
-                "title": "I don't like any of these"
-              }
-            ]
+            }
         }
 
         return {
