@@ -30,7 +30,7 @@ def webhook():
 
 def processRequest(req):
     if req.get("result").get("action") == "inspiration":
-        res = makeWebhookResult("inspiration")
+        res = makeWebhookResult({ "response_type": "inspiration", "style": req.get("result").get("parameters").get("style") })
     elif req.get("result").get("action") == "find":
         return {}
     else:
@@ -41,10 +41,11 @@ def processRequest(req):
 
 def makeWebhookResult(data):
     
-    if data == "inspiration":
+    if data.response_type == "inspiration":
 
         speech = "Found some stuff for you!"
 
+        print(data)
         print("Response:")
         print(speech)
 
