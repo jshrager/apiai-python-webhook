@@ -221,19 +221,30 @@ def makeWebhookResult(data):
             "source": "apiai-weather-webhook-sample"
         }
 
-    elif data.get("response_type") == "re_finding_products":
+    elif data.get("response_type") == "liked_product":
 
-        speech = "Found some other stuff for you!"
+        speech = "OK, opening the app now!"
 
         facebook_message = {
-            "text":"I've found some other products you might be interested in.",
-            "quick_replies":[
-              {
-                "content_type":"text",
-                "title":"Show Me",
-                "payload":"Show Me"
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"Great, click below to open the app!",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"fb://",
+                    "title":"Open In App"
+                  },
+                  {
+                    "type":"web_url",
+                    "url":"https://itunes.apple.com/app/id378458261",
+                    "title":"Download App"
+                  }
+                ]
               }
-            ]
+            }
         }
 
         return {
