@@ -72,7 +72,6 @@ def makeWebhookResult(data):
             }
         }
 
-
         return {
             "speech": speech,
             "displayText": speech,
@@ -80,6 +79,7 @@ def makeWebhookResult(data):
             # "contextOut": [],
             "source": "apiai-weather-webhook-sample"
         }
+
     elif data.get("response_type") == "finding_products":
 
         facebook_message = {
@@ -91,6 +91,14 @@ def makeWebhookResult(data):
                 "payload":"Show Me"
               }
             ]
+        }
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": {"facebook": facebook_message},
+            # "contextOut": [],
+            "source": "apiai-weather-webhook-sample"
         }
 
     else:
