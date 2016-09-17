@@ -49,33 +49,40 @@ def makeWebhookResult(data):
         print("Response:")
         print(speech)
 
-        facebook_message = {
-            "quick_replies":[
-              {
-                "content_type":"location",
-              }
-            ],
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [
-                        {
-                            "title": "Idea 1",
-                            "image_url": "https://www.tutorialspoint.com/python/images/logo.png",
-                            "subtitle": speech,
-                            "buttons": [
-                                {
-                                    "type": "web_url",
-                                    "url": "http://www.google.com",
-                                    "title": "View Details"
-                                }
-                            ]
-                        }
-                    ]
+        if data.get("style") == "modern":
+            facebook_message = {
+                "quick_replies":[
+                  {
+                    "content_type":"text",
+                    "title": "I don't like any of these"
+                  }
+                ],
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [
+                            {
+                                "title": "Mesa Bathroom",
+                                "image_url": "http://st.hzcdn.com/simgs/bd61dcc607117cc4_8-4600/modern-bathroom.jpg",
+                                "subtitle": "Photo of a small contemporary ensuite bathroom.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/52981573/mesa-bathroom-modern-bathroom-other-metro",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom1",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             }
-        }
 
         return {
             "speech": speech,
