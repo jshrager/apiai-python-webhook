@@ -78,7 +78,7 @@ def makeWebhookResult(data):
                                     },
                                     {
                                         "type": "postback",
-                                        "payload": "bathroom1",
+                                        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
                                         "title": "I like"
                                     }
                                 ]
@@ -95,7 +95,7 @@ def makeWebhookResult(data):
                                     },
                                     {
                                         "type": "postback",
-                                        "payload": "bathroom2",
+                                        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
                                         "title": "I like"
                                     }
                                 ]
@@ -112,7 +112,7 @@ def makeWebhookResult(data):
                                     },
                                     {
                                         "type": "postback",
-                                        "payload": "bathroom3",
+                                        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
                                         "title": "I like"
                                     }
                                 ]
@@ -148,7 +148,7 @@ def makeWebhookResult(data):
                                     },
                                     {
                                         "type": "postback",
-                                        "payload": "bathroom1",
+                                        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
                                         "title": "I like"
                                     }
                                 ]
@@ -165,7 +165,7 @@ def makeWebhookResult(data):
                                     },
                                     {
                                         "type": "postback",
-                                        "payload": "bathroom2",
+                                        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
                                         "title": "I like"
                                     }
                                 ]
@@ -182,7 +182,7 @@ def makeWebhookResult(data):
                                     },
                                     {
                                         "type": "postback",
-                                        "payload": "bathroom3",
+                                        "payload": "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
                                         "title": "I like"
                                     }
                                 ]
@@ -238,13 +238,13 @@ def makeWebhookResult(data):
                     "buttons":[
                         {
                         "type":"web_url",
-                        "url":"fb://",
-                        "title":"Show Website"
+                        "url":"https://petersapparel.parseapp.com",
+                        "title":"Open App"
                         },
                         {
-                        "type":"postback",
-                        "title":"Start Chatting",
-                        "payload":"USER_DEFINED_PAYLOAD"
+                        "type":"web_url",
+                        "url":"https://petersapparel.parseapp.com",
+                        "title":"Download App"
                         }
                     ]
                 }
