@@ -49,75 +49,146 @@ def makeWebhookResult(data):
         print("Response:")
         print(speech)
 
-        facebook_message = {
-            "quick_replies":[
-                {
-                    "content_type":"text",
-                    "title":"I don't like these",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
-                    "image_url":"http://media.syracuse.com/news/photo/2013/12/13953661-standard.jpg"
-                }
-            ],
-            "attachment": {
-                "type": "template",
-                "payload": {
-                    "template_type": "generic",
-                    "elements": [
-                        {
-                            "title": "Alonso Bathroom Suite",
-                            "image_url": "http://st.hzcdn.com/simgs/bc21031e03b3c4f5_8-4182/contemporary-bathroom.jpg",
-                            "subtitle": "Lovely contemporary bathroom suite.",
-                            "buttons": [
-                                {
-                                    "type": "web_url",
-                                    "url": "http://www.houzz.co.uk/photos/14206890/alonso-bathroom-suite-contemporary-bathroom-other-metro",
-                                    "title": "View More Details"
-                                },
-                                {
-                                    "type": "postback",
-                                    "payload": "bathroom1",
-                                    "title": "I Like This"
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Mesa Bathroom",
-                            "image_url": "http://st.hzcdn.com/simgs/bd61dcc607117cc4_8-4600/modern-bathroom.jpg",
-                            "subtitle": "Photo of a small contemporary ensuite bathroom.",
-                            "buttons": [
-                                {
-                                    "type": "web_url",
-                                    "url": "http://www.houzz.co.uk/photos/52981573/mesa-bathroom-modern-bathroom-other-metro",
-                                    "title": "View More Details"
-                                },
-                                {
-                                    "type": "postback",
-                                    "payload": "bathroom2",
-                                    "title": "I Like This"
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Queen's Gate Mews",
-                            "image_url": "http://st.hzcdn.com/simgs/24b1cd8b06b468e4_8-3914/contemporary-bathroom.jpg",
-                            "subtitle": "Photo of a small contemporary ensuite bathroom.",
-                            "buttons": [
-                                {
-                                    "type": "web_url",
-                                    "url": "http://www.houzz.co.uk/photos/47950727/queens-gate-mews-contemporary-bathroom-london",
-                                    "title": "View More Details"
-                                },
-                                {
-                                    "type": "postback",
-                                    "payload": "bathroom3",
-                                    "title": "I Like This"
-                                }
-                            ]
-                        }
-                    ]
+        if data.get("style") == "modern":
+            facebook_message = {
+                "quick_replies":[
+                    {
+                        "content_type":"text",
+                        "title":"I don't like these",
+                        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
+                        "image_url":"http://media.syracuse.com/news/photo/2013/12/13953661-standard.jpg"
+                    }
+                ],
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [
+                            {
+                                "title": "Alonso Bathroom Suite",
+                                "image_url": "http://st.hzcdn.com/simgs/bc21031e03b3c4f5_8-4182/contemporary-bathroom.jpg",
+                                "subtitle": "Lovely contemporary bathroom suite.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/14206890/alonso-bathroom-suite-contemporary-bathroom-other-metro",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom1",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Classic White Bathroom",
+                                "image_url": "http://st.hzcdn.com/simgs/bd61dcc607117cc4_8-4600/modern-bathroom.jpg",
+                                "subtitle": "Photo of a small contemporary white bathroom.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/52981573/mesa-bathroom-modern-bathroom-other-metro",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom2",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Wood Effect",
+                                "image_url": "http://st.hzcdn.com/simgs/24b1cd8b06b468e4_8-3914/contemporary-bathroom.jpg",
+                                "subtitle": "Ultra modern wood effect tiles.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/47950727/queens-gate-mews-contemporary-bathroom-london",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom3",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
                 }
             }
-        }
+        elif data.get("style") == "traditional":
+            facebook_message = {
+                "quick_replies":[
+                    {
+                        "content_type":"text",
+                        "title":"I don't like these",
+                        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
+                        "image_url":"http://media.syracuse.com/news/photo/2013/12/13953661-standard.jpg"
+                    }
+                ],
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": [
+                            {
+                                "title": "White Tiled Bathroom",
+                                "image_url": "http://st.hzcdn.com/simgs/4301648c0374c290_8-9828/traditional-bathroom.jpg",
+                                "subtitle": "Traditional bath and shower.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/12276216/bathroom-remodeling-traditional-bathroom-south-east",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom1",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Traditional London Bathroom",
+                                "image_url": "http://st.hzcdn.com/simgs/3ef15947075192a4_8-3755/traditional-bathroom.jpg",
+                                "subtitle": "Exposed shower valves.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/56172600/walthamstow-london-traditional-bathroom-london",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom2",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Country with a touch of chic",
+                                "image_url": "http://st.hzcdn.com/simgs/72112c6107d9b81f_8-7685/traditional-cloakroom.jpg",
+                                "subtitle": "Victorian Basin.",
+                                "buttons": [
+                                    {
+                                        "type": "web_url",
+                                        "url": "http://www.houzz.co.uk/photos/66744118/wimbledon-common-traditional-cloakroom-london",
+                                        "title": "View More Details"
+                                    },
+                                    {
+                                        "type": "postback",
+                                        "payload": "bathroom3",
+                                        "title": "I Like This"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
 
         return {
             "speech": speech,
@@ -133,6 +204,29 @@ def makeWebhookResult(data):
 
         facebook_message = {
             "text":"I've found some products you might be interested in.",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Show Me",
+                "payload":"Show Me"
+              }
+            ]
+        }
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": {"facebook": facebook_message},
+            # "contextOut": [],
+            "source": "apiai-weather-webhook-sample"
+        }
+
+    elif data.get("response_type") == "re_finding_products":
+
+        speech = "Found some other stuff for you!"
+
+        facebook_message = {
+            "text":"I've found some other products you might be interested in.",
             "quick_replies":[
               {
                 "content_type":"text",
