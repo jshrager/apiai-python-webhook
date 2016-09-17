@@ -51,9 +51,11 @@ def makeWebhookResult(data):
 
         facebook_message = {
             "quick_replies":[
-                "content_type":"text",
-                "title":"Red",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+                {
+                    "content_type":"text",
+                    "title":"Red",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+                }
             ],
             "attachment": {
                 "type": "template",
