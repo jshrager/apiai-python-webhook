@@ -231,23 +231,23 @@ def makeWebhookResult(data):
 
         facebook_message = {
             "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"button",
-                "text":"Great, click below to open the app!",
-                "buttons":[
-                  {
-                    "type":"web_url",
-                    "url":"fb://",
-                    "title":"Open In App"
-                  },
-                  {
-                    "type":"web_url",
-                    "url":"https://itunes.apple.com/app/id378458261",
-                    "title":"Download App"
-                  }
-                ]
-              }
+                "type":"template",
+                "payload":{
+                    "template_type":"button",
+                    "text":"What do you want to do next?",
+                    "buttons":[
+                        {
+                        "type":"web_url",
+                        "url":"https://petersapparel.parseapp.com",
+                        "title":"Show Website"
+                        },
+                        {
+                        "type":"postback",
+                        "title":"Start Chatting",
+                        "payload":"USER_DEFINED_PAYLOAD"
+                        }
+                    ]
+                }
             }
         }
 
