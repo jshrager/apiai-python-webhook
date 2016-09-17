@@ -31,7 +31,7 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") == "inspiration":
         res = makeWebhookResult("inspiration")
-    elif: req.get("result").get("action") == "find":
+    elif req.get("result").get("action") == "find":
         return {}
     else:
         return {}
