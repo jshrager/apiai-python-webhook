@@ -271,7 +271,7 @@ def makeWebhookResult(data):
             "attachment":{
                 "type":"video",
                 "payload":{
-                    "url":"http://www.html5videoplayer.net/videos/toystory.mp4"
+                    "url":"https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/87/5/125436425/358235358.mp4?token=57dd54b8_0xc2efa0896cff07e6bce5a58c2568839102f30004"
                 }
             }
         }
