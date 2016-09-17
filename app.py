@@ -53,8 +53,9 @@ def makeWebhookResult(data):
             "quick_replies":[
                 {
                     "content_type":"text",
-                    "title":"Red",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+                    "title":"I don't like these",
+                    "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED",
+                    "image_url":"http://media.syracuse.com/news/photo/2013/12/13953661-standard.jpg"
                 }
             ],
             "attachment": {
@@ -62,6 +63,23 @@ def makeWebhookResult(data):
                 "payload": {
                     "template_type": "generic",
                     "elements": [
+                        {
+                            "title": "Alonso Bathroom Suite",
+                            "image_url": "http://st.hzcdn.com/simgs/bc21031e03b3c4f5_8-4182/contemporary-bathroom.jpg",
+                            "subtitle": "Lovely contemporary bathroom suite.",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "http://www.houzz.co.uk/photos/14206890/alonso-bathroom-suite-contemporary-bathroom-other-metro",
+                                    "title": "View More Details"
+                                },
+                                {
+                                    "type": "postback",
+                                    "payload": "bathroom1",
+                                    "title": "I Like This"
+                                }
+                            ]
+                        },
                         {
                             "title": "Mesa Bathroom",
                             "image_url": "http://st.hzcdn.com/simgs/bd61dcc607117cc4_8-4600/modern-bathroom.jpg",
@@ -74,7 +92,24 @@ def makeWebhookResult(data):
                                 },
                                 {
                                     "type": "postback",
-                                    "payload": "bathroom1",
+                                    "payload": "bathroom2",
+                                    "title": "I Like This"
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Queen's Gate Mews",
+                            "image_url": "http://st.hzcdn.com/simgs/24b1cd8b06b468e4_8-3914/contemporary-bathroom.jpg",
+                            "subtitle": "Photo of a small contemporary ensuite bathroom.",
+                            "buttons": [
+                                {
+                                    "type": "web_url",
+                                    "url": "http://www.houzz.co.uk/photos/47950727/queens-gate-mews-contemporary-bathroom-london",
+                                    "title": "View More Details"
+                                },
+                                {
+                                    "type": "postback",
+                                    "payload": "bathroom3",
                                     "title": "I Like This"
                                 }
                             ]
