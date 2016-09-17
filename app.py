@@ -234,11 +234,11 @@ def makeWebhookResult(data):
                 "type":"template",
                 "payload":{
                     "template_type":"button",
-                    "text":"What do you want to do next?",
+                    "text":"Awesome, just click one of the options below!",
                     "buttons":[
                         {
                         "type":"web_url",
-                        "url":"https://petersapparel.parseapp.com",
+                        "url":"fb://",
                         "title":"Show Website"
                         },
                         {
