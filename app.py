@@ -33,6 +33,8 @@ def processRequest(req):
         res = makeWebhookResult({ "response_type": "inspiration", "style": req.get("result").get("parameters").get("style") })
     elif req.get("result").get("action") == "finding_products":
         res = makeWebhookResult({ "response_type": "finding_products" })
+    elif req.get("result").get("action") == "liked_product":
+        res = makeWebhookResult({ "response_type": "liked_product" })
     else:
         return {}
     
@@ -77,7 +79,7 @@ def makeWebhookResult(data):
                                     {
                                         "type": "postback",
                                         "payload": "bathroom1",
-                                        "title": "I Like"
+                                        "title": "I like"
                                     }
                                 ]
                             },
@@ -94,7 +96,7 @@ def makeWebhookResult(data):
                                     {
                                         "type": "postback",
                                         "payload": "bathroom2",
-                                        "title": "I Like"
+                                        "title": "I like"
                                     }
                                 ]
                             },
@@ -111,7 +113,7 @@ def makeWebhookResult(data):
                                     {
                                         "type": "postback",
                                         "payload": "bathroom3",
-                                        "title": "I Like"
+                                        "title": "I like"
                                     }
                                 ]
                             }
@@ -147,7 +149,7 @@ def makeWebhookResult(data):
                                     {
                                         "type": "postback",
                                         "payload": "bathroom1",
-                                        "title": "I Like"
+                                        "title": "I like"
                                     }
                                 ]
                             },
@@ -164,7 +166,7 @@ def makeWebhookResult(data):
                                     {
                                         "type": "postback",
                                         "payload": "bathroom2",
-                                        "title": "I Like"
+                                        "title": "I like"
                                     }
                                 ]
                             },
@@ -181,7 +183,7 @@ def makeWebhookResult(data):
                                     {
                                         "type": "postback",
                                         "payload": "bathroom3",
-                                        "title": "I Like"
+                                        "title": "I like"
                                     }
                                 ]
                             }
