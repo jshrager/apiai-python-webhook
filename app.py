@@ -223,6 +223,8 @@ def makeWebhookResult(data):
 
     elif data.get("response_type") == "liked_product":
 
+        print("liked")
+
         speech = "OK, opening the app now!"
 
         facebook_message = {
