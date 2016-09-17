@@ -50,7 +50,6 @@ def makeWebhookResult(data):
         print(speech)
 
         facebook_message = {
-            "text":"What do you think?",
             "quick_replies":[
               {
                 "content_type":"location",
