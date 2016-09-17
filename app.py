@@ -271,7 +271,7 @@ def makeWebhookResult(data):
             "attachment":{
                 "type":"video",
                 "payload":{
-                    "url":"http://www.sleepsuntil.com/plumber.mp4"
+                    "url":"http://www.html5videoplayer.net/videos/toystory.mp4"
                 }
             }
         }
