@@ -35,6 +35,8 @@ def processRequest(req):
         res = makeWebhookResult({ "response_type": "finding_products" })
     elif req.get("result").get("action") == "liked_product":
         res = makeWebhookResult({ "response_type": "liked_product" })
+    elif req.get("result").get("action") == "diy_advice":
+        res = makeWebhookResult({ "response_type": "diy_advice" })
     else:
         return {}
     
@@ -247,6 +249,29 @@ def makeWebhookResult(data):
                         "title":"Download App"
                         }
                     ]
+                }
+            }
+        }
+
+        return {
+            "speech": speech,
+            "displayText": speech,
+            "data": {"facebook": facebook_message},
+            # "contextOut": [],
+            "source": "apiai-weather-webhook-sample"
+        }
+
+    elif data.get("response_type") == "diy_advice":
+
+        print("diy")
+
+        speech = "OK, how about this?"
+
+        facebook_message = {
+            "attachment":{
+                "type":"video",
+                "payload":{
+                    "url":"http://www.sleepsuntil.com/plumber.mp4"
                 }
             }
         }
