@@ -269,9 +269,9 @@ def makeWebhookResult(data):
 
         facebook_message = {
             "attachment":{
-                "type":"video",
+                "type":"file",
                 "payload":{
-                    "url":"https://fpdl.vimeocdn.com/vimeo-prod-skyfire-std-us/01/87/5/125436425/358235358.mp4?token=57dd54b8_0xc2efa0896cff07e6bce5a58c2568839102f30004"
+                    "url":"https://bitcoin.org/bitcoin.pdf"
                 }
             }
         }
